@@ -88,8 +88,8 @@ Sample size. With n = 39, performance depends on careful hyperparameter tuning.
 Gene filtering. Removing lowly expressed genes before imputation reduces memory use but also removes information the model could learn from.
 
 ## References
-Mattei PA, Frellsen J. MIWAE: Deep generative modelling and imputation of incomplete data sets. ICML. 2019.
-Burda Y, Grosse R, Salakhutdinov R. Importance weighted autoencoders. ICLR. 2016.
-Eraslan G, et al. Single-cell RNA-seq denoising using a deep count autoencoder. Nature Communications. 2019;10:390.
-Love MI, Huber W, Anders S. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biology. 2014;15:550.
-Mack KL, Ballinger MA, Phifer-Rixey M, Nachman MW. Gene regulation underlies environmental adaptation in house mice. Genome Research. 2018;28(11):1636–45.
+1. Mattei PA, Frellsen J. MIWAE: Deep generative modelling and imputation of incomplete data sets. ICML. 2019.
+2. Burda Y, Grosse R, Salakhutdinov R. Importance weighted autoencoders. ICLR. 2016.
+3. Eraslan G, et al. Single-cell RNA-seq denoising using a deep count autoencoder. Nature Communications. 2019;10:390.
+4. Love MI, Huber W, Anders S. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biology. 2014;15:550.
+5. Mack KL, Ballinger MA, Phifer-Rixey M, Nachman MW. Gene regulation underlies environmental adaptation in house mice. Genome Research. 2018;28(11):1636–45.
