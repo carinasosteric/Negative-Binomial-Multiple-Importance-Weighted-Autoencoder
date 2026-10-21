@@ -14,22 +14,22 @@ Importance-weighted training (MIWAE) draws many latent samples per observation. 
 
 ## Model
 
-Encoder. Takes library-size-normalised, log1p-transformed counts concatenated with the missingness mask. It outputs a Gaussian posterior q(z | x) over a low-dimensional latent space.
+Encoder: Takes library-size-normalised, log1p-transformed counts concatenated with the missingness mask. It outputs a Gaussian posterior q(z | x) over a low-dimensional latent space.
 
-Importance sampling. Draws K = 100 latent samples per observation using the reparameterisation trick.
+Importance sampling: Draws K = 100 latent samples per observation using the reparameterisation trick.
 
-Decoder. Maps each latent sample to a per-gene NB mean and dispersion, predicted in log space so both stay positive.
+Decoder: Maps each latent sample to a per-gene NB mean and dispersion, predicted in log space so both stay positive.
 
-Objective. Maximises the importance-weighted ELBO:
+Objective: Maximises the importance-weighted ELBO:
 
 log w = log p(x_obs | z) + log p(z) − log q(z | x)
 loss  = −mean( logsumexp(log w) − log K )
 
 The NB log-likelihood is computed on observed entries only, under an MCAR assumption. A small penalty discourages near-zero predicted means where the observed count is non-zero.
 
-Imputation. The decoded means from L = 100 latent samples are averaged, weighted by their self-normalised importance weights. Only missing entries are filled; observed values are left unchanged. Outputs are rounded to non-negative integers.
+Imputation: The decoded means from L = 100 latent samples are averaged, weighted by their self-normalised importance weights. Only missing entries are filled; observed values are left unchanged. Outputs are rounded to non-negative integers.
 
-### Training.
+### Training
 
 Adam optimiser (weight decay 1e-5) with ReduceLROnPlateau
 Gradient clipping (max norm 0.5) and clamped NB parameters for numerical stability
@@ -76,7 +76,7 @@ Usage
 
 Final hyperparameters: latent size 32, hidden size 512, K = 100, learning rate 5e-4, batch size 16.
 
-## Outputs:
+## Outputs
 
 imputation_metrics_miwae_log_FINAL.csv: evaluation metrics, one row per dataset
 true_vs_imputed_log.png: true vs imputed held-out values (log space, non-zero only)
